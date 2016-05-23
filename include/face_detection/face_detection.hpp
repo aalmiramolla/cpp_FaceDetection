@@ -46,6 +46,7 @@ public:
 
 	// Getters and setters
 	std::vector<cv::Mat> get_images();
+	std::vector<cv::Mat> get_detected_faces();
 	std::string get_haarcascade_file();
 	cv::Mat get_image_at_index(unsigned int idx);
 

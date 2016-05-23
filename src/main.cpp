@@ -78,8 +78,8 @@ int main( int argc, char** argv ) {
         return -1;
     }
 	std::cout << "Images size:" << face_detection.get_images().size() << "\n";
-//    std::vector<cv::Mat> faces = process_images(face_detection);
-//    create_mosaic(faces);
-//    save_faces(faces, "./faces/");
+    std::vector<cv::Mat> faces = process_images(face_detection);
+    // create_mosaic(faces);
+    save_faces(faces, "./faces/");
     return 0;
 }

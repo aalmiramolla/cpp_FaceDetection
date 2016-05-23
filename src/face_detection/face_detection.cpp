@@ -99,6 +99,11 @@ FaceDetection::get_images() {
 	return images;
 }
 
+std::vector<cv::Mat>
+FaceDetection::get_detected_faces() {
+	return detected_faces;
+}
+
 cv::Mat
 FaceDetection::get_image_at_index(unsigned int idx) {
 	if ( idx > 0 && idx < images.size() )
@@ -117,7 +122,8 @@ std::vector<cv::Mat> process_images(FaceDetection face_detection) {
 
     for (size_t i = 0; i < face_detection.get_images().size(); i++) {
         // Detect faces in image
-        std::vector<cv::Mat> faces_aux = face_detection.detect_faces(face_detection.get_image_at_index(i));
+		face_detection.detect_faces(face_detection.get_image_at_index(i));
+        std::vector<cv::Mat> faces_aux = face_detection.get_detected_faces();
         // Insert in vector, faces found in image
         faces.insert(std::end(faces), std::begin(faces_aux), std::end(faces_aux));
     }
